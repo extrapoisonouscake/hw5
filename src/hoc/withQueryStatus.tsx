@@ -1,17 +1,17 @@
-import LoadingText from '@/components/LoadingText';
+import LoadingText from "@/components/LoadingText";
 import {
 	type BaseQueryFn,
 	type FetchBaseQueryMeta,
 	type QueryDefinition,
-} from '@reduxjs/toolkit/dist/query';
-import {type UseQuery} from '@reduxjs/toolkit/dist/query/react/buildHooks';
-import React, {type ElementType} from 'react';
-import {type FetchArgs, type FetchBaseQueryError} from '@reduxjs/toolkit/dist/query';
+} from "@reduxjs/toolkit/dist/query";
+import {type UseQuery} from "@reduxjs/toolkit/dist/query/react/buildHooks";
+import React, {type ElementType} from "react";
+import {type FetchArgs, type FetchBaseQueryError} from "@reduxjs/toolkit/dist/query";
 
-type Props = {
+interface Props {
 	[key: string]: any;
 	useQueryArg?: any;
-};
+}
 const withQueryStatus
   = <TUseQueryArg, TUseQueryResult>(
   	useQuery: UseQuery<

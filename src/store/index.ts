@@ -1,7 +1,7 @@
-import {combineReducers, configureStore} from '@reduxjs/toolkit';
-import cartSlice from './slices/cart';
-import {moviesApi} from './api/movies';
-import {cinemasApi} from './api/cinemas';
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import cartSlice from "./slices/cart";
+import {moviesApi} from "./api/movies";
+import {cinemasApi} from "./api/cinemas";
 const reducer = combineReducers({
 	cart: cartSlice,
 	[moviesApi.reducerPath]: moviesApi.reducer,
@@ -17,5 +17,5 @@ const store = configureStore({
 });
 export type AppStore = typeof store;
 export type RootState = ReturnType<typeof reducer>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = AppStore["dispatch"];
 export default store;

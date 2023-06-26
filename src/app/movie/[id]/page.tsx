@@ -1,14 +1,14 @@
-'use client';
-import cn from 'classnames';
-import styles from './page.module.css';
-import instance from '@/axios';
-import {type IMovie} from '@/types';
-import {useEffect, useState} from 'react';
-import {useParams} from 'next/navigation';
-import LoadingText from '@/components/LoadingText';
-import Image from 'next/image';
-import {genresTexts} from '@/constants';
-import Reviews from './Reviews';
+"use client";
+import cn from "classnames";
+import styles from "./page.module.css";
+import instance from "@/axios";
+import {type IMovie} from "@/types";
+import {useEffect, useState} from "react";
+import {useParams} from "next/navigation";
+import LoadingText from "@/components/LoadingText";
+import Image from "next/image";
+import {genresTexts} from "@/constants";
+import Reviews from "./Reviews";
 const displayOneLineProperty = (property: string, value: string | number) => (
 	<p>
 		<b>{property}:</b> {value}
@@ -18,7 +18,7 @@ export default function MoviesPage() {
 	const {id} = useParams();
 	const [movie, setMovie] = useState<IMovie | undefined>();
 	useEffect(() => {
-		instance.get('/movie', {params: {movieId: id}}).then(res => {
+		instance.get("/movie", {params: {movieId: id}}).then(res => {
 			setMovie(res.data);
 		});
 	}, []);
@@ -36,14 +36,14 @@ export default function MoviesPage() {
 		description,
 	} = movie;
 	const oneLinePropertiesData: Array<[string, string | number]> = [
-		['Жанр', genresTexts[genre]],
-		['Год выпуска', releaseYear],
-		['Рейтинг', rating],
-		['Режиссер', director],
+		["Жанр", genresTexts[genre]],
+		["Год выпуска", releaseYear],
+		["Рейтинг", rating],
+		["Режиссер", director],
 	];
 	return (
 		<>
-			<div className={cn('card', styles.container)}>
+			<div className={cn("card", styles.container)}>
 				<div className={styles.poster}>
 					<Image fill src={posterUrl} alt='Постер фильма' />
 				</div>

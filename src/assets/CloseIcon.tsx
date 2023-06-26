@@ -1,4 +1,4 @@
-import {type AnyProps} from '@/types';
+import {type AnyProps} from "@/types";
 const CloseIcon = (props: AnyProps) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'

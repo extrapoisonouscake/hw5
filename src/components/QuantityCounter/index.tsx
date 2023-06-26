@@ -1,17 +1,18 @@
-import styles from './index.module.css';
-import {useAppDispatch, useAppSelector} from '@/store/hooks';
+import styles from "./index.module.css";
+import {useAppDispatch, useAppSelector} from "@/store/hooks";
 import {
 	incrementMovieQuantity,
 	decrementMovieQuantity,
 	selectMovieQuantity,
-} from '@/store/slices/cart';
-import {type IMovie} from '@/types';
-import MinusIcon from '@/assets/MinusIcon';
-import PlusIcon from '@/assets/PlusIcon';
-type Props = {
-	id: IMovie['id'];
-};
-export default function QuantityCounter({id}: Props) {
+} from "@/store/slices/cart";
+import {type IMovie} from "@/types";
+import MinusIcon from "@/assets/MinusIcon";
+import PlusIcon from "@/assets/PlusIcon";
+interface Props {
+	id: IMovie["id"];
+	onDeletion?: () => void;
+}
+export default function QuantityCounter({id, onDeletion}: Props) {
 	const dispatch = useAppDispatch();
 	const currentQuantity = useAppSelector(selectMovieQuantity(id));
 	const increment = () => {
@@ -26,13 +27,20 @@ export default function QuantityCounter({id}: Props) {
 		<div className={styles.container}>
 			<button
 				disabled={!currentQuantity || currentQuantity === 0}
-				onClick={decrement}
+				onClick={() => {
+					if (currentQuantity === 1 && onDeletion) {
+						onDeletion();
+						return;
+					}
+
+					decrement();
+				}}
 			>
-				<MinusIcon/>
+				<MinusIcon />
 			</button>
 			<p>{currentQuantity || 0}</p>
 			<button disabled={currentQuantity === 30} onClick={increment}>
-				<PlusIcon/>
+				<PlusIcon />
 			</button>
 		</div>
 	);

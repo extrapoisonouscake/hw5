@@ -1,8 +1,8 @@
-import cn from 'classnames';
-import styles from './index.module.css';
+import cn from "classnames";
+import styles from "./index.module.css";
 export default function AboutUs() {
 	return (
-		<div className={cn('card', styles.container)}>
+		<div className={cn("card", styles.container)}>
 			<h3 className={styles.heading}>О нас</h3>
 			<p>
         Мы — крупнейший сервис о кино в рунете. На нем вы сможете посмотреть

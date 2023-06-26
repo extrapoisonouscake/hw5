@@ -1,18 +1,18 @@
-'use client';
-import cn from 'classnames';
-import Select from '@/components/Select';
-import styles from './index.module.css';
-import {type ICinema} from '@/types';
-import {genresTexts} from '@/constants';
-import {type FilterInputsTypes} from '@/types';
-import Input from '@/components/Input';
-import {useGetCinemasQuery} from '@/store/api/cinemas';
-import withQueryStatus from '@/hoc/withQueryStatus';
+"use client";
+import cn from "classnames";
+import Select from "@/components/Select";
+import styles from "./index.module.css";
+import {type ICinema} from "@/types";
+import {genresTexts} from "@/constants";
+import {type FilterInputsTypes} from "@/types";
+import Input from "@/components/Input";
+import {useGetCinemasQuery} from "@/store/api/cinemas";
+import withQueryStatus from "@/hoc/withQueryStatus";
 
-type Props = {
+interface Props {
 	values: FilterInputsTypes;
 	setValues: (values: FilterInputsTypes) => void;
-};
+}
 
 const CinemasSelect = ({
 	serverData,
@@ -23,7 +23,7 @@ const CinemasSelect = ({
 }) => (
 	<Select
 		options={[
-			['', 'Все'],
+			["", "Все"],
 			...serverData.map(
 				cinema => [cinema.id, cinema.name] as [string, string],
 			),
@@ -36,8 +36,6 @@ const CinemasSelectWithStatus
   = withQueryStatus(useGetCinemasQuery)(CinemasSelect);
 
 export default function Filters({values, setValues}: Props) {
-	const {data: cinemas} = useGetCinemasQuery();
-
 	const makeOnChange: (
 		inputName: keyof FilterInputsTypes
 	) => (value: string) => void = inputName => value => {
@@ -51,14 +49,14 @@ export default function Filters({values, setValues}: Props) {
 		onValueChange: makeOnChange(inputName),
 	});
 	return (
-		<div className={cn('card', styles.container)}>
+		<div className={cn("card", styles.container)}>
 			<p className={styles.title}>Фильтр поиска</p>
 			<div className={styles.filtersContainer}>
 				<div className={styles.block}>
 					<label className={styles.label} htmlFor='title_filter'>
             Название
 					</label>
-					<Input {...makeProps('title')} placeholder='Введите название' />
+					<Input {...makeProps("title")} placeholder='Введите название' />
 				</div>
 				<div className={styles.block}>
 					<label className={styles.label} htmlFor='genre_filter'>
@@ -66,9 +64,9 @@ export default function Filters({values, setValues}: Props) {
 					</label>
 
 					<Select
-						{...makeProps('genre')}
-						options={[['', 'Все'], ...Object.entries(genresTexts)]}
-						placeholder={'Выберите жанр'}
+						{...makeProps("genre")}
+						options={[["", "Все"], ...Object.entries(genresTexts)]}
+						placeholder={"Выберите жанр"}
 					/>
 				</div>
 				<div className={styles.block}>
@@ -77,7 +75,7 @@ export default function Filters({values, setValues}: Props) {
 					</label>
 
 					<CinemasSelectWithStatus
-						{...makeProps('cinema')}
+						{...makeProps("cinema")}
 						placeholder='Выберите кинотеатр'
 					/>
 				</div>

@@ -1,4 +1,4 @@
-import {type AnyProps} from '@/types';
+import {type AnyProps} from "@/types";
 
 const CartIcon = (props: AnyProps) => (
 	<svg

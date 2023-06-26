@@ -1,14 +1,14 @@
-import cn from 'classnames';
-import {type IMovie} from '@/types';
-import styles from './index.module.css';
-import {genresTexts} from '@/constants';
-import Image from 'next/image';
-import Link from 'next/link';
-import QuantityCounter from '@/components/QuantityCounter';
-import CloseButton from '@/components/CloseButton';
-type Props = {
+import cn from "classnames";
+import {type IMovie} from "@/types";
+import styles from "./index.module.css";
+import {genresTexts} from "@/constants";
+import Image from "next/image";
+import Link from "next/link";
+import QuantityCounter from "@/components/QuantityCounter";
+import CloseButton from "@/components/CloseButton";
+interface Props {
 	onDeletion?: () => void;
-};
+}
 export default function MovieCard({
 	id,
 	title,
@@ -17,7 +17,7 @@ export default function MovieCard({
 	onDeletion,
 }: IMovie & Props) {
 	return (
-		<div className={cn('card', styles.card)}>
+		<div className={cn("card", styles.card)}>
 			<Link className={styles.content} href={`/movie/${id}`}>
 				<div className={styles.poster}>
 					<Image
@@ -33,7 +33,7 @@ export default function MovieCard({
 				</div>
 			</Link>
 			<div className={styles.actions}>
-				<QuantityCounter id={id} />
+				<QuantityCounter id={id} onDeletion={onDeletion} />
 
 				{onDeletion && (
 					<CloseButton

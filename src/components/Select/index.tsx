@@ -1,16 +1,16 @@
-import cn from 'classnames';
-import {useRef, useState, useEffect} from 'react';
-import styles from './index.module.css';
-import {type SelectHTMLAttributes} from 'react';
-import useToggleOpening from './useToggleOpening';
-import ArrowIcon from '../../assets/ArrowIcon';
-import BindedPortal from './BindedPortal';
-type Props = {
+import cn from "classnames";
+import {useRef, useState, useEffect} from "react";
+import styles from "./index.module.css";
+import {type SelectHTMLAttributes} from "react";
+import useToggleOpening from "../../hooks/useToggleOpening";
+import ArrowIcon from "../../assets/ArrowIcon";
+import BindedPortal from "./BindedPortal";
+interface Props {
 	options: Array<[string, string]>;
 	placeholder?: string;
 	onValueChange: (newOptionValue: string) => void;
 	initialValue?: string;
-};
+}
 export default function Select({
 	options,
 	placeholder,
@@ -25,7 +25,7 @@ export default function Select({
 	//   UseOutsideClick(ref, setIsClosed);
 	useEffect(() => {
 		if (onValueChange) {
-			onValueChange(optionIndex > -1 ? options[optionIndex][0] : '');
+			onValueChange(optionIndex > -1 ? options[optionIndex][0] : "");
 		}
 	}, [optionIndex]);
 	return (

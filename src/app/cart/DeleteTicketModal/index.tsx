@@ -1,12 +1,12 @@
-import styles from './index.module.css';
-import {createPortal} from 'react-dom';
-import CloseButton from '@/components/CloseButton';
-import {memo} from 'react';
-type Props = {
+import styles from "./index.module.css";
+import {createPortal} from "react-dom";
+import CloseButton from "@/components/CloseButton";
+import {memo} from "react";
+interface Props {
 	isOpened: boolean;
 	closeModal: () => void;
 	onAction?: () => void;
-};
+}
 function DeleteTicketModal({isOpened, closeModal, onAction}: Props) {
 	return createPortal(
 		<div className={styles.container} data-visible={isOpened}>

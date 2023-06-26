@@ -1,12 +1,12 @@
-import {type InputHTMLAttributes, useState} from 'react';
-type Props = {
+import {type InputHTMLAttributes, useState} from "react";
+interface Props {
 	onValueChange: (value: string) => void;
-};
+}
 export default function Input({
 	onValueChange,
 	...props
 }: InputHTMLAttributes<HTMLInputElement> & Props) {
-	const [value, setValue] = useState<string>('');
+	const [value, setValue] = useState<string>("");
 	return (
 		<input
 			{...props}

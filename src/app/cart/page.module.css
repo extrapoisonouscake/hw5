@@ -1,0 +1,9 @@
+.container,.cards{
+	display:flex;
+	flex-direction:column;
+	gap:16px;
+}
+.container{
+	flex:1;
+	justify-content:space-between;
+}

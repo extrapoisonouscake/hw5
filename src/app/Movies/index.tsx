@@ -1,15 +1,15 @@
-'use client';
-import styles from './index.module.css';
-import {type IMovie} from '@/types';
-import {useCallback} from 'react';
-import MovieCard from '../MovieCard';
-import {type FilterInputsTypes} from '@/types';
-import LoadingText from '@/components/LoadingText';
-import {useGetCinemasQuery} from '@/store/api/cinemas';
-type Props = {
+"use client";
+import styles from "./index.module.css";
+import {type IMovie} from "@/types";
+import {useCallback} from "react";
+import MovieCard from "../MovieCard";
+import {type FilterInputsTypes} from "@/types";
+import LoadingText from "@/components/LoadingText";
+import {useGetCinemasQuery} from "@/store/api/cinemas";
+interface Props {
 	filterInputsValues: FilterInputsTypes;
 	serverData: IMovie[];
-};
+}
 
 export default function Movies({filterInputsValues, serverData}: Props) {
 	const movies = serverData;

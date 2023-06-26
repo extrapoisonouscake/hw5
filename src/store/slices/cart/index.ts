@@ -1,13 +1,13 @@
-import {type IMovie} from '@/types';
-import {createSlice} from '@reduxjs/toolkit';
-type State = {
-	tickets: Array<{movieId: IMovie['id']; quantity: number}>;
-};
+import {type IMovie} from "@/types";
+import {createSlice} from "@reduxjs/toolkit";
+interface State {
+	tickets: Array<{movieId: IMovie["id"]; quantity: number}>;
+}
 const initialState: State = {
 	tickets: [],
 };
 const slice = createSlice({
-	name: 'cart',
+	name: "cart",
 	initialState,
 	reducers: {
 		incrementMovieQuantity(state, action) {
@@ -53,5 +53,5 @@ const slice = createSlice({
 });
 export const {incrementMovieQuantity, decrementMovieQuantity, deleteMovie}
   = slice.actions;
-export * from './selectors';
+export * from "./selectors";
 export default slice.reducer;

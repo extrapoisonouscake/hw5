@@ -1,12 +1,12 @@
-import styles from './index.module.css';
-import useForceUpdate from '@/hooks/useForceUpdate';
-import {type MutableRefObject, type ReactNode, useEffect} from 'react';
-import {createPortal} from 'react-dom';
-type Props = {
+import styles from "./index.module.css";
+import useForceUpdate from "@/hooks/useForceUpdate";
+import {type MutableRefObject, type ReactNode, useEffect} from "react";
+import {createPortal} from "react-dom";
+interface Props {
 	children: ReactNode;
 	selectRef: MutableRefObject<any>;
 	onOutsideClick: () => void;
-};
+}
 export default function BindedPortal({
 	children,
 	selectRef,
@@ -18,9 +18,9 @@ export default function BindedPortal({
 	};
 
 	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener("scroll", handleScroll);
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
 	if (!selectRef?.current) {

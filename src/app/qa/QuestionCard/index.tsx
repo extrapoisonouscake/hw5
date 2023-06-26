@@ -1,11 +1,11 @@
-import {type IQuestion} from '@/types';
-import styles from './index.module.css';
-import cn from 'classnames';
-import ArrowIcon from '@/assets/ArrowIcon';
-type Props = {
+import {type IQuestion} from "@/types";
+import styles from "./index.module.css";
+import cn from "classnames";
+import ArrowIcon from "@/assets/ArrowIcon";
+interface Props {
 	isOpened: boolean;
 	toggleCard: () => void;
-};
+}
 export default function QuestionCard({
 	q,
 	a,
@@ -14,7 +14,7 @@ export default function QuestionCard({
 }: IQuestion & Props) {
 	return (
 		<div
-			className={cn('card', styles.card, {[styles.opened]: isOpened})}
+			className={cn("card", styles.card, {[styles.opened]: isOpened})}
 			key={q}
 		>
 			<div onClick={toggleCard} className={styles.header}>

@@ -1,0 +1,36 @@
+.container{
+	display:flex;
+	align-items:stretch;
+	gap:32px;
+	margin-bottom:24px;
+}
+.poster{
+	width:400px;
+	height:500px;
+	position:relative;
+}
+.poster img{
+	object-fit:cover;
+	border-radius:var(--border-radius);
+}
+.info{
+	flex:1
+}
+.heading {
+	font-size:32px;
+	font-weight:500;
+}
+.oneLineProperties{
+	display:flex;
+	margin-top:24px;
+	flex-direction:column;
+	gap:16px;
+}
+.oneLineProperties p,.descriptionHeading{
+	font-size:20px;
+}
+.descriptionHeading{
+	font-weight:500;
+	margin-top:32px;
+	margin-bottom:16px;
+}

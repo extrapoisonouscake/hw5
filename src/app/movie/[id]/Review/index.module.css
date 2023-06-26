@@ -1,0 +1,22 @@
+.container{
+	display:flex;
+	gap:32px;
+}
+.info{
+	display:flex;
+	flex-direction:column;
+	gap:16px;
+	flex:1;
+}
+.nameAndRatingRow{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	gap:20px;
+}
+.nameAndRatingRow p{
+	font-size:20px;
+}
+.authorName{
+	font-weight:500;
+}

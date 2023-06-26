@@ -1,0 +1,41 @@
+.card{
+	display:flex;
+	gap:24px;
+	justify-content:space-between;
+	
+}
+.content{
+	display:flex;
+	gap:24px;
+	flex:1;
+	align-items:stretch;
+}
+.text{
+	display:flex;
+	flex-direction:column;
+	gap:8px;
+}
+.title{
+	font-size:20px;
+	font-weight:500
+}
+.genre{
+	font-style:italic;
+	font-size:16px;
+}
+.poster {
+border-radius:var(--border-radius);
+overflow:hidden;
+height:120px;
+width:100px;
+position:relative;
+}
+.poster img{
+	object-fit:cover;
+}
+.actions{
+	display:flex;
+	height:fit-content;
+	align-items:center;
+	gap:24px;
+}
